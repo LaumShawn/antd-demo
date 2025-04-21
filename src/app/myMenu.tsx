@@ -1,5 +1,5 @@
 "use client";
-import { Menu } from "antd";
+import { Layout, Menu } from "antd";
 import {
   DashboardOutlined,
   UserOutlined,
@@ -18,10 +18,6 @@ import Item from "antd/es/list/Item";
 import Sider from "antd/es/layout/Sider";
 
 const items = [
-  {
-    key: "side",
-    icon: <RightCircleOutlined />,
-  },
   {
     key: "sub1", //指整個巢狀結構
     label: "儀表總版",
@@ -86,40 +82,37 @@ const MyMenu = () => {
   };
 
   return (
-    <ConfigProvider
-      theme={{
-        components: {
-          Menu: {
-            itemColor: "#ffff",
-            collapsedWidth:"50px",
-            popupBg:"#FA541C "
-          },
-        },
-        token: {
-          fontSize: 20,
-          fontSizeLG: 24,
-          fontFamily: "Microsoft YaHei",
-          colorPrimary: "#FFA940",
-        
-        },
-      }}
-    >       
-    <Menu
-          mode="inline"
-          style={{
-            height: "1024px",
-            backgroundImage: "linear-gradient(#FA541C, #FFE7BA)",
-            position:"fixed",
-            maxWidth:"200px"
-          }}
-          inlineCollapsed={collapsed}
-          
-          items={items}
-          onClick={handleMenuClick} // Pass the handler function here
+    <Layout hasSider={true}>
+      <ConfigProvider
+        theme={{
+          components: {
+            Menu: {
+              itemColor: "#ffff",
 
-        />
-      
-    </ConfigProvider>
+              popupBg: "#FA541C ",
+            },
+          },
+          token: {
+            fontSize: 20,
+            fontSizeLG: 24,
+            fontFamily: "Microsoft YaHei",
+            colorPrimary: "#FFA940",
+          },
+        }}
+      ><Menu
+            mode="inline"
+            style={{
+              height: "100%",
+              backgroundImage: "linear-gradient(#FA541C, #FFE7BA)",
+              position: "fixed",
+              maxWidth: "200px",
+            }}
+            inlineCollapsed={collapsed}
+            items={items}
+            onClick={handleMenuClick} // Pass the handler function here
+          />
+      </ConfigProvider>
+    </Layout>
   );
 };
 export default MyMenu;
