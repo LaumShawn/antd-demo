@@ -29,7 +29,7 @@ const items = [
     label: "客戶管理",
     icon: <UserOutlined />,
     children: [
-      { key: "5", label: "Option 5" },
+      { key: "5", label: "客戶列表" },
       { key: "6", label: "Option 6" },
       { key: "7", label: "Option 7" },
       { key: "8", label: "Option 8" },

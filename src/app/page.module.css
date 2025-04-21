@@ -166,3 +166,10 @@ a.secondary {
     filter: invert();
   }
 }
+.p{
+  font-size: 20px;
+}
+.card-info-text{
+  font-size: 20px;
+  margin-left: 10px;
+}
