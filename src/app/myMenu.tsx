@@ -3,19 +3,14 @@ import { Layout, Menu } from "antd";
 import {
   DashboardOutlined,
   UserOutlined,
-  MenuFoldOutlined,
-  MenuUnfoldOutlined,
   PartitionOutlined,
   ToolOutlined,
-  RightCircleOutlined,
-  LeftCircleOutlined,
 } from "@ant-design/icons";
 import React from "react";
 import { useState } from "react";
-import { Button } from "antd";
+
 import { ConfigProvider } from "antd";
-import Item from "antd/es/list/Item";
-import Sider from "antd/es/layout/Sider";
+
 
 const items = [
   {
