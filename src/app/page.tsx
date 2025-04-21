@@ -24,18 +24,22 @@ export default function Home() {
           {" "}
           {/* Add some margin/padding */}
           <Flex >
-            <h1>空壓機智慧監控客戶列表</h1>
-            <SearchOutlined style={{fontSize:"40px"}} />
-            <Input maxLength={30} style={{ maxWidth: "200px" }} />
+            <h1 style={{fontSize:"60px"}}>空壓機智慧監控客戶列表</h1>
+            <div style={{display:"flex", flexDirection:"row"}}>
+              <SearchOutlined style={{fontSize:"36px"}} />
+            <Input maxLength={30} style={{ maxWidth: "200px", maxHeight:"40px" }} />
+            </div>
+            
           </Flex>
           <Card
             title="嘉彰股份有限公司" // Changed title for clarity
             style={{ width: "100%", marginBottom: "16px" }} // Adjusted styles slightly
+            hoverable={true}
           >
             {" "}
             <Row>
               <Image
-                src="/2.png"
+                src="/customer/banner/1.png"
                 alt="fuck"
                 width={300}
                 style={{ border: "1px solid #8C8C8C", borderRadius: "10px" }}
@@ -52,11 +56,12 @@ export default function Home() {
           <Card
             title="新光華造紙股份有限公司" // Changed title for clarity
             style={{ width: "100%", marginBottom: "16px" }} // Adjusted styles slightly
+            hoverable={true}
           >
             <div style={{ display: "flex", flexDirection: "row" }}>
               {" "}
               <Image
-                src="/2.png"
+                src="/customer/banner/2.png"
                 alt="fuck"
                 width={300}
                 style={{ border: "1px solid #8C8C8C", borderRadius: "10px" }}
@@ -73,10 +78,11 @@ export default function Home() {
           <Card
             title="福利麵包食品有限公司" // Changed title for clarity
             style={{ width: "100%", marginBottom: "16px" }} // Adjusted styles slightly
+            hoverable={true}
           >
             <div style={{ display: "flex", flexDirection: "row" }}>
               <Image
-                src="/2.png"
+                src="/customer/banner/3.png"
                 alt="fuck"
                 width={300}
                 style={{ border: "1px solid #8C8C8C", borderRadius: "10px" }}
