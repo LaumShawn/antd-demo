@@ -168,6 +168,10 @@ a.secondary {
 }
 .p{
   font-size: 20px;
+  margin-left: 10px;
+}
+.ant-card-head-title{
+  font-size: large;
 }
 .card-info-text{
   font-size: 20px;

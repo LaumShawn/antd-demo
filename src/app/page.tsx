@@ -21,7 +21,15 @@ export default function Home() {
       </Sider>
       <Layout>
         <ConfigProvider
-        
+        theme={
+          {
+            components:{
+              Card:{
+                headerFontSize:"36px"
+              }
+            }
+          }
+        }
         >
           <Content style={{ margin: "16px" }}>
             {/* Add some margin/padding */}
