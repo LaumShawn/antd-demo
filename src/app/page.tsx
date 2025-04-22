@@ -12,7 +12,7 @@ import { useState } from "react";
 import Sider from "antd/es/layout/Sider";
 // 之後改用ant design List 來做列表
 export default function Home() {
-  
+
   // 狀態管理每個 Card 的展開狀態
   const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({
     'card1': false,
@@ -68,14 +68,41 @@ export default function Home() {
           facilities: '1'
         },
         details: '這裡可以放更多詳細資訊...'
+      },
+      {
+        id: 'card4',
+        title: '範例客戶有限公司',
+        image: '/customer/banner/3.png',
+        content: {
+          contact: '尹玉佩',
+          phone: '02-25946995',
+          fax: '02-81924414',
+          address: '臺北市中山區中山北路3段23之4號1樓',
+          facilities: '1'
+        },
+        details: '這裡可以放更多詳細資訊...'
+      },
+      {
+        id: 'card5',
+        title: '範例客戶有限公司',
+        image: '/customer/banner/3.png',
+        content: {
+          contact: '尹玉佩',
+          phone: '02-25946995',
+          fax: '02-81924414',
+          address: '臺北市中山區中山北路3段23之4號1樓',
+          facilities: '1'
+        },
+        details: '這裡可以放更多詳細資訊...'
       }
     ];
-  
+
 
   return (
     <Layout style={{ minHeight: "100vh" }} hasSider={true}>
       <MyMenu />
-      <Layout style={{ marginLeft: 200 }}>
+      {/* Adjusted inner Layout style to add marginRight */}
+      <Layout style={{ marginLeft: 200, marginRight: 200 }}>
         <ConfigProvider
           theme={{
             components: {
@@ -130,7 +157,7 @@ export default function Home() {
                   <p>設施總數: {card.content.facilities}</p>
                 </Col>
               </Row>
-              
+
               {/* 展開的內容 */}
               {expandedCards[card.id] && (
                 <div style={{ marginTop: 16, padding: 16, backgroundColor: '#f5f5f5', borderRadius: 8 }}>
@@ -142,22 +169,37 @@ export default function Home() {
           ))}
           </Content>
         </ConfigProvider>
-        <Sider>
-         <Menu
-         items={[{
-          key:"r1",
-          label:"新增客戶",
-         },
-        {
-          key:"r2",
-          label:"重整列表",
-        }]}
-         />
-    
-        
+        {/* Modified Sider style */}
+        <Sider
+          width={200} // Explicitly set width
+          style={{
+            position: 'fixed',
+            right: 0,
+            top: 0,
+            height: '100vh',
+            background: '#fff', // Added background for visibility
+            overflow: 'auto' // Add scroll if content overflows
+          }}
+        >
+          <ConfigProvider>
+             <Menu
+               items={[{
+                 key:"r1",
+                 label:"新增客戶",
+               },
+               {
+                 key:"r2",
+                 label:"重整列表",
+               }]}
+               style={{
+                 // background:"#ffff", // Background is now on Sider
+                 height:"100%", // Menu height remains 100% of Sider
+               }}
+             />
+          </ConfigProvider>
         </Sider>
       </Layout>
-      
+
     </Layout>
   );
 }
