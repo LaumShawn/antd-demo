@@ -8,9 +8,8 @@ import {
 } from "@ant-design/icons";
 import React from "react";
 import { useState } from "react";
-
+import Sider from "antd/es/layout/Sider";
 import { ConfigProvider } from "antd";
-
 
 const items = [
   {
@@ -54,6 +53,7 @@ const items = [
     ],
   },
 ];
+
 const MyMenu = () => {
   const [collapsed, setCollapsed] = useState(false);
   const toggleCollapsed = () => {
@@ -77,37 +77,55 @@ const MyMenu = () => {
   };
 
   return (
-    <Layout hasSider={true}>
-      <ConfigProvider
-        theme={{
-          components: {
-            Menu: {
-              itemColor: "#ffff",
-
-              popupBg: "#FA541C ",
-            },
+    <ConfigProvider
+      theme={{
+        components: {
+          Menu: {
+            itemColor: "#ffff",
+            popupBg: "#FA541C ",
           },
-          token: {
-            fontSize: 20,
-            fontSizeLG: 24,
-            fontFamily: "Microsoft YaHei",
-            colorPrimary: "#FFA940",
-          },
+        Layout:{
+          triggerBg:"#FFE7BA",
+          triggerHeight:"64px"
+        }
+        },
+        token: {
+          fontSize: 20,
+          fontSizeLG: 24,
+          fontFamily: "Microsoft YaHei",
+          colorPrimary: "#FFA940",
+        },
+      }}
+    >
+      <Sider
+        collapsible
+        collapsed={collapsed}
+        collapsedWidth={40}
+        onCollapse={toggleCollapsed}
+        width={200}
+        style={{
+          overflow: "auto",
+          height: "100vh",
+          position: "fixed",
+          left: 0,
+          top: 0,
+          bottom: 0,
+          backgroundColor:"#FFE7BA",
+          marginRight:"10px"
         }}
-      ><Menu
-            mode="inline"
-            style={{
-              height: "100%",
-              backgroundImage: "linear-gradient(#FA541C, #FFE7BA)",
-              position: "fixed",
-              maxWidth: "200px",
-            }}
-            inlineCollapsed={collapsed}
-            items={items}
-            onClick={handleMenuClick} // Pass the handler function here
-          />
-      </ConfigProvider>
-    </Layout>
+      >
+        <Menu
+          mode="inline"
+          style={{
+            height: "100%",
+            backgroundImage: "linear-gradient(#FA541C, #FFE7BA)",
+          }}
+          inlineCollapsed={collapsed}
+          items={items}
+          onClick={handleMenuClick}
+        />
+      </Sider>
+    </ConfigProvider>
   );
 };
 export default MyMenu;
