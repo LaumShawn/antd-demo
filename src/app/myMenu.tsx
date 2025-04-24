@@ -15,9 +15,9 @@ import { useRouter } from "next/navigation";
 const items = [
   {
     key: "sub1", //指整個巢狀結構
-    label: "儀表總版",              
-    icon: <DashboardOutlined />,    
-    children: [               
+    label: "儀表總版",
+    icon: <DashboardOutlined />,
+    children: [
       { key: "1", label: "通知管理" },
       { key: "2", label: "審計日誌" },
       { key: "3", label: "Option 3" },
@@ -60,19 +60,18 @@ const MyMenu = () => {
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
   };
-const router = useRouter()
+  const router = useRouter();
   // Define the onClick handler function
   const HandleMenuClick = (info: any) => {
     console.log("Clicked menu item key:", info.key);
-    
 
     if (info.key === "side") {
       toggleCollapsed();
     }
     if (info.key === "5") {
-      router.push("http://localhost:3000/")
+      router.push("http://localhost:3000/");
+    }
   };
-  }
   return (
     <ConfigProvider
       theme={{
@@ -81,10 +80,10 @@ const router = useRouter()
             itemColor: "#ffff",
             popupBg: "#FA541C ",
           },
-        Layout:{
-          triggerBg:"#FFE7BA",
-          triggerHeight:"64px"
-        }
+          Layout: {
+            triggerBg: "#FFE7BA",
+            triggerHeight: "64px",
+          },
         },
         token: {
           fontSize: 20,
@@ -107,8 +106,8 @@ const router = useRouter()
           left: 0,
           top: 0,
           bottom: 0,
-          backgroundColor:"#FFE7BA",
-          marginRight:"10px"
+          backgroundColor: "#FFE7BA",
+          marginRight: "10px",
         }}
       >
         <Menu

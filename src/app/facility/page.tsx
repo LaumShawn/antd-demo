@@ -8,7 +8,7 @@ import { Card, Image, Col, Row } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import { Flex } from "antd";
 import { ConfigProvider } from "antd";
-import style from "../page.module.css"
+import styles from "../page.module.css"
 import { useState } from "react";
 import Sider from "antd/es/layout/Sider";
 // 之後改用ant design List 來做列表
@@ -38,7 +38,43 @@ export default function Home() {
         statuse:"營運中"
       },
       details:"dfsdgsg"
-    },
+    },  {
+      id: "fac2",
+      title: "烤漆廠",
+      image:"/customer/banner/1.png",
+      content: {
+        contact: "烤漆廠務",
+        phone: "03-3228175",
+        fax: "03-3111652",
+        address: "桃園市蘆竹區南山路2段205巷45號",
+        statuse:"營運中"
+      },
+      details:"dfsdgsg"
+    },  {
+      id: "fac3",
+      title: "烤漆廠",
+      image:"/customer/banner/1.png",
+      content: {
+        contact: "烤漆廠務",
+        phone: "03-3228175",
+        fax: "03-3111652",
+        address: "桃園市蘆竹區南山路2段205巷45號",
+        statuse:"營運中"
+      },
+      details:"dfsdgsg"
+    },  {
+      id: "fac4",
+      title: "烤漆廠",
+      image:"/customer/banner/1.png",
+      content: {
+        contact: "烤漆廠務",
+        phone: "03-3228175",
+        fax: "03-3111652",
+        address: "桃園市蘆竹區南山路2段205巷45號",
+        statuse:"營運中"
+      },
+      details:"dfsdgsg"
+    }
   ];
   return (
     <Layout style={{ minHeight: "100vh" }} hasSider={true}>
@@ -94,7 +130,7 @@ export default function Home() {
                       borderRadius: "10px",
                     }}
                   />
-                  <Col >
+                  <Col className={styles.p}>
                     <p>聯絡人: {card.content.contact}</p>
                     <p>電話: {card.content.phone}</p>
                     <p>傳真: {card.content.fax}</p>
@@ -129,7 +165,7 @@ export default function Home() {
                         style={{ margin: "10px" }}
                         type="primary"
                       >
-                        檢視客戶資料
+                        檢視設施資料
                       </Button>
                       <Button
                         href="http://localhost:3000/facility"
@@ -137,7 +173,7 @@ export default function Home() {
                         style={{ margin: "10px" }}
                         type="primary"
                       >
-                        檢視設施列表
+                        檢視機房列表
                       </Button>
                     </div>
                   </div>
