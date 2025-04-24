@@ -42,8 +42,9 @@ export default function Home() {
         address: "桃園市蘆竹區南山路2段205巷45號",
         facilities: "2",
       },
-      details:"545555" 
-      , // 展開後顯示的靜態內容
+      details: "545555", // 展開後顯示的靜態內容
+      customer_statuse:"營運中",
+      
     },
     {
       id: "card2",
@@ -83,7 +84,6 @@ export default function Home() {
         facilities: "1",
       },
       details: "這裡可以放更多詳細資訊...",
-      
     },
     {
       id: "card5",
@@ -107,16 +107,15 @@ export default function Home() {
       <Layout style={{ marginLeft: 200, marginRight: 200 }}>
         <ConfigProvider
           theme={{
-            token:{colorPrimary:'#FFA940'},
+            token: { colorPrimary: "#FFA940" },
             components: {
               Card: {
                 headerFontSize: "36px",
-              
               },
-              Button:{
-                primaryColor:"#ffff",
-                colorPrimaryBg:"#FFA940"
-              }
+              Button: {
+                primaryColor: "#ffff",
+                colorPrimaryBg: "#FFA940",
+              },
             },
           }}
         >
@@ -181,6 +180,7 @@ export default function Home() {
                     }}
                   >
                     <div>{card.details}</div>
+                    <p>狀態:{card.customer_statuse}</p>
                     {/* 可以在這裡添加更多展開後的內容 */}
                     <div
                       style={{
@@ -212,7 +212,7 @@ export default function Home() {
             ))}
           </Content>
         </ConfigProvider>
-        
+
         <Sider
           width={200} // Explicitly set width
           style={{
