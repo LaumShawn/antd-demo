@@ -1,122 +1,56 @@
 "use client";
-import MyMenu from "./myMenu";
+import MyMenu from "../myMenu";
 import { Layout, Menu } from "antd";
+import { Button } from "antd";
 import { Input } from "antd";
 import { Content } from "antd/es/layout/layout";
 import { Card, Image, Col, Row } from "antd";
 import { SearchOutlined } from "@ant-design/icons";
 import { Flex } from "antd";
 import { ConfigProvider } from "antd";
-import styles from "./page.module.css";
+import style from "../page.module.css"
 import { useState } from "react";
 import Sider from "antd/es/layout/Sider";
-import Link from "next/link";
-import { Button } from "antd";
 // 之後改用ant design List 來做列表
 export default function Home() {
-  // 狀態管理每個 Card 的展開狀態
   const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({
     card1: false,
     card2: false,
     card3: false,
   });
 
-  //  透過決定渲染資料的多寡來達成切換 Card 展開狀態
   const toggleCard = (cardId: string) => {
     setExpandedCards((prev) => ({
       ...prev,
       [cardId]: !prev[cardId],
     }));
   };
-
-  // Card 內容數據
   const cardData = [
     {
-      id: "card1",
-      title: "嘉彰股份有限公司",
-      image: "/customer/banner/1.png",
+      id: "fac1",
+      title: "烤漆廠",
+      image:"/customer/banner/1.png",
       content: {
-        contact: "江新運",
+        contact: "烤漆廠務",
         phone: "03-3228175",
         fax: "03-3111652",
         address: "桃園市蘆竹區南山路2段205巷45號",
-        facilities: "2",
+        statuse:"營運中"
       },
-      details:"545555" 
-      , // 展開後顯示的靜態內容
-    },
-    {
-      id: "card2",
-      title: "新光華造紙股份有限公司",
-      image: "/customer/banner/2.png",
-      content: {
-        contact: "蕭博士",
-        phone: "049-2982011",
-        fax: "03-3111652",
-        address: "南投縣埔里鎮新生路15-1號",
-        facilities: "1",
-      },
-      details: "這裡可以放更多詳細資訊...",
-    },
-    {
-      id: "card3",
-      title: "福利麵包食品有限公司",
-      image: "/customer/banner/3.png",
-      content: {
-        contact: "尹玉佩",
-        phone: "02-25946995",
-        fax: "02-81924414",
-        address: "臺北市中山區中山北路3段23之4號1樓",
-        facilities: "1",
-      },
-      details: "這裡可以放更多詳細資訊...",
-    },
-    {
-      id: "card4",
-      title: "範例客戶有限公司",
-      image: "/customer/banner/3.png",
-      content: {
-        contact: "尹玉佩",
-        phone: "02-25946995",
-        fax: "02-81924414",
-        address: "臺北市中山區中山北路3段23之4號1樓",
-        facilities: "1",
-      },
-      details: "這裡可以放更多詳細資訊...",
-      
-    },
-    {
-      id: "card5",
-      title: "範例客戶有限公司",
-      image: "/customer/banner/3.png",
-      content: {
-        contact: "尹玉佩",
-        phone: "02-25946995",
-        fax: "02-81924414",
-        address: "臺北市中山區中山北路3段23之4號1樓",
-        facilities: "1",
-      },
-      details: "這裡可以放更多詳細資訊...",
+      details:"dfsdgsg"
     },
   ];
-
   return (
     <Layout style={{ minHeight: "100vh" }} hasSider={true}>
       <MyMenu />
-      {/* Adjusted inner Layout style to add marginRight */}
       <Layout style={{ marginLeft: 200, marginRight: 200 }}>
         <ConfigProvider
           theme={{
-            token:{colorPrimary:'#FFA940'},
+            token:{colorPrimary:"#FFA940"},
             components: {
               Card: {
                 headerFontSize: "36px",
-              
               },
-              Button:{
-                primaryColor:"#ffff",
-                colorPrimaryBg:"#FFA940"
-              }
             },
           }}
         >
@@ -128,7 +62,7 @@ export default function Home() {
               style={{ marginBottom: "25PX" }}
             >
               <h1 style={{ fontSize: "60px", textShadow: "2px 5px #ccc" }}>
-                空壓機智慧監控客戶列表
+                嘉彰股份有限公司廠區列表
               </h1>
               <div style={{ display: "flex", flexDirection: "row" }}>
                 <SearchOutlined style={{ fontSize: "36px" }} />
@@ -160,12 +94,12 @@ export default function Home() {
                       borderRadius: "10px",
                     }}
                   />
-                  <Col className={styles.p}>
+                  <Col >
                     <p>聯絡人: {card.content.contact}</p>
                     <p>電話: {card.content.phone}</p>
                     <p>傳真: {card.content.fax}</p>
                     <p>地址: {card.content.address}</p>
-                    <p>設施總數: {card.content.facilities}</p>
+                    <p>運營狀態: {card.content.statuse}</p>
                   </Col>
                 </Row>
 
@@ -212,7 +146,7 @@ export default function Home() {
             ))}
           </Content>
         </ConfigProvider>
-        
+        {/* Modified Sider style */}
         <Sider
           width={200} // Explicitly set width
           style={{

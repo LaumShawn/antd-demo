@@ -10,13 +10,14 @@ import React from "react";
 import { useState } from "react";
 import Sider from "antd/es/layout/Sider";
 import { ConfigProvider } from "antd";
+import { useRouter } from "next/navigation";
 
 const items = [
   {
     key: "sub1", //指整個巢狀結構
-    label: "儀表總版",
-    icon: <DashboardOutlined />,
-    children: [
+    label: "儀表總版",              
+    icon: <DashboardOutlined />,    
+    children: [               
       { key: "1", label: "通知管理" },
       { key: "2", label: "審計日誌" },
       { key: "3", label: "Option 3" },
@@ -59,23 +60,19 @@ const MyMenu = () => {
   const toggleCollapsed = () => {
     setCollapsed(!collapsed);
   };
-
+const router = useRouter()
   // Define the onClick handler function
-  const handleMenuClick = (info: any) => {
+  const HandleMenuClick = (info: any) => {
     console.log("Clicked menu item key:", info.key);
-    // Add your logic here based on the key
-    // For example:
-    // if (info.key === '1') {
-    //   // navigate to notification management page
-    // } else if (info.key === '2') {
-    //   // navigate to audit log page
-    // }
-    // ... and so on
+    
+
     if (info.key === "side") {
       toggleCollapsed();
     }
+    if (info.key === "5") {
+      router.push("http://localhost:3000/")
   };
-
+  }
   return (
     <ConfigProvider
       theme={{
@@ -122,7 +119,7 @@ const MyMenu = () => {
           }}
           inlineCollapsed={collapsed}
           items={items}
-          onClick={handleMenuClick}
+          onClick={HandleMenuClick}
         />
       </Sider>
     </ConfigProvider>
