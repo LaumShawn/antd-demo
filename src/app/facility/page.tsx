@@ -168,7 +168,7 @@ export default function Home() {
                         檢視設施資料
                       </Button>
                       <Button
-                        href="http://localhost:3000/facility"
+                        href="http://localhost:3000/room"
                         shape="round"
                         style={{ margin: "10px" }}
                         type="primary"
