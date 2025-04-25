@@ -1,5 +1,5 @@
 "use client";
-import MyMenu from "./myMenu";
+import MyMenu from "./component/myMenu";
 import { Layout, Menu } from "antd";
 import { Input } from "antd";
 import { Content } from "antd/es/layout/layout";

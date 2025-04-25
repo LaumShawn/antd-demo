@@ -1,5 +1,5 @@
 import Chialist from "./list";
-import MyMenu from "@/app/myMenu";
+import MyMenu from "@/app/component/myMenu";
 import Layout from "antd/es/layout/layout";
 import { Content } from "antd/es/layout/layout";
 export default function page() {
