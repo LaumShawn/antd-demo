@@ -1,9 +1,7 @@
-// src/App.jsx
 'use client'
 import React, { useState } from "react";
 import { Layout } from "antd";
-import CollapseSider from "../component/CollapseSider"; // Import the exported component
-
+import MyMenu from "../component/myMenu";
 const {  Content, } = Layout;
 
 const App = () => {
@@ -27,7 +25,7 @@ const App = () => {
     <Layout style={{ minHeight: "100vh" }}>
       {/* Render the exported MyMenu component */}
       {/* Pass state, handler, and any customization props */}
-      <CollapseSider
+      <MyMenu
         collapsed={collapsed}
         onCollapse={handleCollapse}
         collapsedSiderWidth={collapsedSiderWidth}

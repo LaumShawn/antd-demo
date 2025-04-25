@@ -12,6 +12,13 @@ import Sider from "antd/es/layout/Sider";
 import { ConfigProvider } from "antd";
 import { useRouter } from "next/navigation";
 
+interface CollapseSiderProps {
+  collapsed: boolean;
+  onCollapse: (collapsed: boolean) => void;
+  siderWidth?: number;
+  collapsedSiderWidth?: number;
+}
+
 const items = [
   {
     key: "sub1", //指整個巢狀結構
@@ -55,18 +62,19 @@ const items = [
   },
 ];
 
-const MyMenu = () => {
-  const [collapsed, setCollapsed] = useState(false);
-  const toggleCollapsed = () => {
-    setCollapsed(!collapsed);
-  };
+const MyMenu: React.FC<CollapseSiderProps> = ({
+  collapsed,
+  onCollapse,
+  siderWidth = 200,
+  collapsedSiderWidth = 40,
+}) => {
   const router = useRouter();
   // Define the onClick handler function
   const HandleMenuClick = (info: any) => {
     console.log("Clicked menu item key:", info.key);
-
-    if (info.key === "side") {
-      toggleCollapsed();
+    if (info.key === "1") {
+      console.log("info =>");
+      console.log(info);
     }
     if (info.key === "5") {
       router.push("http://localhost:3000/");
@@ -96,9 +104,9 @@ const MyMenu = () => {
       <Sider
         collapsible
         collapsed={collapsed}
-        collapsedWidth={40}
-        onCollapse={toggleCollapsed}
-        width={200}
+        collapsedWidth={collapsedSiderWidth}
+        onCollapse={onCollapse}
+        width={siderWidth}
         style={{
           overflow: "auto",
           height: "100vh",
