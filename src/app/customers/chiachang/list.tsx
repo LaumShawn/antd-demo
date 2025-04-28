@@ -48,6 +48,50 @@ export default function hialist() {
       description: "桃園市蘆竹區南山路2段205巷45號",
     },
   ];
+  const contact = [
+    {
+      title: "經理",
+      name: "陳金里",
+      tel: "02-12345678",
+      fax: "02-1266666",
+      adress: "桃園市蘆竹區南山路2段205巷45號",
+    },
+    {
+      title: "副理",
+      name: "張富禮",
+      tel: "02-12345678",
+      fax: "02-1266666",
+      adress: "桃園市蘆竹區南山路2段205巷45號",
+    },
+    {
+      title: "業務主管",
+      name: "蕭萬里",
+      tel: "02-12345678",
+      fax: "02-1266666",
+      adress: "桃園市蘆竹區南山路2段205巷45號",
+    },
+    {
+      title: "3號廠廠務",
+      name: "許務克",
+      tel: "02-12345678",
+      fax: "02-1266666",
+      adress: "桃園市蘆竹區南山路2段205巷45號",
+    },
+    {
+      title: "雜貨店小勞闆",
+      name: "岡田胖虎",
+      tel: "02-12345678",
+      fax: "02-1266666",
+      adress: "桃園市蘆竹區南山路2段205巷45號",
+    },
+    {
+      title: "空氣扭腰舞皇帝",
+      name: "愛新覺羅志祥",
+      tel: "02-12345678",
+      fax: "02-1266666",
+      adress: "桃園市蘆竹區南山路2段205巷45號",
+    },
+  ];
   return (
     <Layout>
       <Content>
@@ -66,12 +110,22 @@ export default function hialist() {
         />
         <List
           itemLayout="horizontal"
-          dataSource={data}
+          dataSource={contact}
+          header="聯絡人列表"
+          grid={{column:4}}
+          bordered
           renderItem={(item) => (
             <List.Item>
               <List.Item.Meta
-                title={<a>{item.title}</a>}
-                description={item.description}
+                title={item.title}
+                description={
+                  <div >
+                    <p>{item.name}</p>
+                    <p>{item.tel}</p>
+                    <p>{item.fax}</p>
+                    <p>{item.adress}</p>
+                  </div>
+                }
               />
             </List.Item>
           )}

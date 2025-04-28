@@ -12,7 +12,22 @@ import styles from "../page.module.css"
 import { useState } from "react";
 import Sider from "antd/es/layout/Sider";
 // 之後改用ant design List 來做列表
-export default function Home() {
+ const Home = ()=> {
+  const [collapsed, setCollapsed] = useState(false);
+  
+    // These widths must match the ones used/expected by MyMenu for correct margin calculation
+    const siderWidth = 200;
+    const collapsedSiderWidth = 40;
+  
+    // The handler that will be passed to MyMenu
+    interface CollapseHandlerProps {
+      (collapsedStatus: boolean): void;
+    }
+  
+    const handleCollapse: CollapseHandlerProps = (collapsedStatus) => {
+      console.log("Menu collapsed state:", collapsedStatus);
+      setCollapsed(collapsedStatus);
+    };
   const [expandedCards, setExpandedCards] = useState<Record<string, boolean>>({
     card1: false,
     card2: false,
@@ -78,8 +93,11 @@ export default function Home() {
   ];
   return (
     <Layout style={{ minHeight: "100vh" }} hasSider={true}>
-      <MyMenu />
-      <Layout style={{ marginLeft: 200, marginRight: 200 }}>
+      <MyMenu  collapsed={collapsed}
+        onCollapse={handleCollapse}
+        collapsedSiderWidth={collapsedSiderWidth} />
+      <Layout style={{  marginLeft: collapsed ? collapsedSiderWidth : siderWidth,
+          transition: "margin-left 0.2s",}}>
         <ConfigProvider
           theme={{
             token:{colorPrimary:"#FFA940"},
@@ -90,7 +108,7 @@ export default function Home() {
             },
           }}
         >
-          <Content style={{ margin: "16px", width: "100%" }}>
+          <Content style={{ marginRight: "200px", width: "100%" ,padding:"10px" }}>
             {/* Add some margin/padding */}
             <Flex
               justify="space-between"
@@ -217,3 +235,5 @@ export default function Home() {
     </Layout>
   );
 }
+
+export default Home
